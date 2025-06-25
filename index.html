@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanoj Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body Styling */
+      body {
+        font-family: "Helvetica Neue", sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Header and Navigation */
+      header {
+        background-color: #6fcd80;
+        padding: 1rem 0;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1200px;
+        top: 0;
+        z-index: 100;
+        margin: 0 auto;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #be12d9;
+        transition: 0.6s ease-in-out;
+      }
+
+      /* Main Content */
+      main {
+        margin-top: 80px;
+      }
+
+      /* Section Styling */
+      section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #299682, #1f4062);
+        color: white;
+        text-align: center;
+        padding: 6rem 2rem;
+        margin-top: 0;
+        padding-top: 10rem;
+      }
+
+      .hero h1 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #e74c3c;
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #c0392b;
+        transition: 0.8s ease-in-out;
+      }
+
+      /* About Section */
+      .about {
+        background-color: #f8f9fa;
+      }
+
+      .about-content {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 2;
+      }
+
+      .about-image img {
+        flex: 1;
+        text-align: left;
+        width: 250px;
+        height: 300px;
+        border-radius: 60%;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: #3498db;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 4rem;
+        color: white;
+      }
+
+      /* Skills Section */
+      .skills-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-items: center;
+      }
+
+      .skill-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .skill-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .skill-list {
+        list-style: none;
+      }
+
+      .skill-list li {
+        background-color: #3498db;
+        color: white;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+      }
+
+      /* Projects Section */
+      .projects {
+        background-color: #b3cee9;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-image {
+        height: 200px;
+        background-color: #586e84;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+
+      .project-info {
+        padding: 1.5rem;
+      }
+
+      .project-info h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+      .project-info p {
+        margin-bottom: 1rem;
+        color: #555;
+      }
+
+      .project-links {
+        margin-top: 1rem;
+      }
+
+      .project-links a {
+        display: inline-block;
+        background-color: #368ec8;
+        color: rgb(249, 249, 249);
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-right: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .project-links a:hover {
+        background-color: #2980b9;
+        transition: 0.3s ease-in-out;
+      }
+
+      /* Contact Section */
+      .contact {
+        text-align: center;
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-item h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .contact-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 1024px) {
+        header {
+          max-width: 100vw;
+        }
+        nav {
+          padding: 0 1rem;
+        }
+        section {
+          padding: 3rem 1rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .about-content {
+          flex-direction: column;
+          gap: 2rem;
+          text-align: center;
+        }
+        .about-image img {
+          width: 180px;
+          height: 180px;
+        }
+        .profile-pic {
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+        .nav-links {
+          gap: 1rem;
+          flex-direction: column;
+        }
+        .logo img {
+          width: 60px;
+          height: 60px;
+        }
+        .hero {
+          padding: 4rem 1rem;
+          padding-top: 8rem;
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .about-content {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        .about-image img {
+          width: 140px;
+          height: 140px;
+        }
+        .profile-pic {
+          width: 100px;
+          height: 100px;
+        }
+        .skills-grid,
+        .projects-grid,
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 2rem 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          margin-top: 0;
+          display: none;
+        }
+        nav {
+          padding: 0 0.2rem;
+        }
+        .logo img {
+          width: 40px;
+          height: 40px;
+        }
+        .hero {
+          padding: 2rem 0.2rem;
+          padding-top: 4rem;
+        }
+        main {
+          margin-top: 0;
+        }
+        h1 {
+          font-size: 1.3rem;
+        }
+        h2 {
+          font-size: 1.1rem;
+        }
+        .btn {
+          padding: 0.7rem 1.2rem;
+          font-size: 0.9rem;
+        }
+        .about-image img {
+          width: 90px;
+          height: 90px;
+        }
+        .profile-pic {
+          width: 60px;
+          height: 60px;
+          font-size: 2rem;
+        }
+        .skill-card,
+        .contact-item,
+        .project-card {
+          padding: 1rem;
+        }
+        .project-image {
+          height: 100px;
+          font-size: 2rem;
+        }
+        footer {
+          padding: 1rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header and navigation Section -->
+    <header>
+      <marquee
+        class="marquee"
+        behavior="scroll"
+        direction="left"
+        scrollamount="10"
+      >
+        Welcome to My Portfolio
+      </marquee>
+      <nav>
+        <div class="logo"><img src="../img/about.jpg" alt="Logo" /></div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <h1>Sanoj Shrestha</h1>
+        <p>Computer Science Student</p>
+        <a href="#about" class="btn">Learn More About Me</a>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Hello! I'm Sanoj, a passionate computer science student currently
+              in my third year at State University. I love creating web
+              applications and solving complex problems through code.
+            </p>
+            <p>
+              I started programming two years ago and have been fascinated by
+              how technology can make people's lives easier. My goal is to
+              become a full-stack developer and work on projects that make a
+              positive impact.
+            </p>
+            <p>
+              When I'm not coding, I enjoy reading tech blogs, playing chess,
+              and contributing to open-source projects.
+            </p>
+          </div>
+          <div class="about-image">
+            <div class="profile-pic">
+              <img src="../img/about.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="cv">
+          <h3>Curriculum Vitae</h3>
+          <p>
+            Download my CV to learn more about my education, experience, and
+            skills.
+          </p>
+          <a href="../file/Sanoj_Resume.pdf" class="btn" download
+            >Download CV</a
+          >
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Programming Languages</h3>
+            <ul class="skill-list">
+              <li>HTML & CSS</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Java</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Web Technologies</h3>
+            <ul class="skill-list">
+              <li>Responsive Design</li>
+              <li>Bootstrap</li>
+              <li>React (Learning)</li>
+              <li>Node.js (Basic)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Tools & Others</h3>
+            <ul class="skill-list">
+              <li>Git & GitHub</li>
+              <li>VS Code</li>
+              <li>Photoshop</li>
+              <li>Microsoft Office</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="../img/website.svg"
+                alt="Personal Website"
+                width="80"
+                height="80"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Personal Website</h3>
+              <p>
+                My first website built with HTML and CSS. Features responsive
+                design and clean layout to showcase my work and skills.
+              </p>
+              <div class="project-links">
+                <a href="#">View Live</a>
+                <a href="#">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">🧮</div>
+            <div class="project-info">
+              <h3>Calculator App</h3>
+              <p>
+                A simple calculator built using JavaScript. Performs basic
+                arithmetic operations with a clean and user-friendly interface.
+              </p>
+              <div class="project-links">
+                <a href="#">View Live</a>
+                <a href="#">GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">📝</div>
+            <div class="project-info">
+              <h3>To-Do List</h3>
+              <p>
+                A task management application that helps users organize their
+                daily tasks. Built with HTML, CSS, and JavaScript.
+              </p>
+              <div class="project-links">
+                <a href="#">View Live</a>
+                <a href="#">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>
+          I'd love to hear from you! Feel free to reach out for collaborations
+          or just to say hello.
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <a
+              href="https://www.facebook.com/sanoj.shrestha.50552"
+              target="_blank"
+            >
+              <div class="contact-icon">
+                <img
+                  src="../img/facebook-svgrepo-com.svg"
+                  alt="facebook image"
+                  width="30px"
+                  height="30px"
+                />
+              </div>
+            </a>
+            <h3>Facebook</h3>
+            <p>Sanoj Shrestha</p>
+          </div>
+          <div class="contact-item">
+            <a href="mailto:sanojshrestha2000@gmail.com">
+              <div class="contact-icon">
+                <img
+                  src="../img/emailsvg.svg"
+                  alt="email image"
+                  width="30px"
+                  height="30px"
+                />
+              </div>
+            </a>
+            <h3>Email</h3>
+            <p>sanojshrestha2000@gmail.com</p>
+          </div>
+          <div class="contact-item">
+            <a
+              href="https://www.linkedin.com/in/sanoj-shrestha-3840351b8/"
+              target="_blank"
+            >
+              <div class="contact-icon">
+                <img
+                  src="../img/linkedinsvg.svg"
+                  alt="linkedin image"
+                  width="30px"
+                  height="30px"
+                />
+              </div>
+            </a>
+            <h3>LinkedIn</h3>
+            <p>Sanoj Shrestha</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Sanoj. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
